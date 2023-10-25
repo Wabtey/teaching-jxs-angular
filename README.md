@@ -28,7 +28,7 @@ npm install -g @angular/cli
 
 ```bash
 # génération d'un nouveau projet
-ng new pokdemo
+ng new pokedemo
 cd pokedemo
 ```
 
@@ -84,7 +84,7 @@ Vous constaterez que ng-cli génère automatiquement une structure pour vous ave
 Créer un composant avec un élément *&lt;input>* afin de récupérer l'id recherché. Ajouter votre
 composant à la liste des directives et au template du composant *my-component*.
 
-Charger ce composant en ahjoutant le selector de ce composant dans le template du composant *app.component.html*
+Charger ce composant en ajoutant le selector de ce composant dans le template du composant *app.component.html*
 
 ```html
 <app-my-component></app-my-component>
