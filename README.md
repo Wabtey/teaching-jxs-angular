@@ -110,7 +110,7 @@ et dans la section import, ajoutez le chargement de ce module pour votre applica
   ],
 ```
 
-Pour ajoutez le databinding, on utilise la directive  ngModel qui s'utilise comme ceci dans le fichier my-component-component.html :
+Pour ajoutez le databinding, on utilise la directive  ngModel qui s'utilise comme ceci dans le fichier my-component.component.html :
 
 ```html
 <input [(ngModel)]="id">
