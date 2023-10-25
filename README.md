@@ -118,7 +118,7 @@ Pour ajoutez le databinding, on utilise la directive  ngModel qui s'utilise comm
 
 Ce code lie la valeur de l'élément input à l'attribut *id* de notre composant.
 
-Il faut aussi aussi ajouter l'attribut dans la classe métier du composant.  Dans  my-component-component.ts, ajouter l'attribut id de type string
+Il faut aussi aussi ajouter l'attribut dans la classe métier du composant.  Dans  my-component.component.ts, ajouter l'attribut id de type string
 
 ```ts
   id: string = '';
