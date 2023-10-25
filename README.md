@@ -1,6 +1,6 @@
-# Sujet de TP Angular 
+# Sujet de TP Angular
 
-![](https://github.com/barais/teaching-jxs-angular/raw/master/img/banner.png)
+![banner](https://github.com/barais/teaching-jxs-angular/raw/master/img/banner.png)
 
 Votre aventure dans le monde merveilleux des frameworks JavaScript commence avec Angular.
 
@@ -10,10 +10,9 @@ peut aussi utiliser Javascript 5/6 ou bien Dart.
 Pour vous aider dans votre quète, le professeur Chen vous a laissé des instructions ainsi que les
 éléments de bases pour créer un Pokédex à cette adresse : [https://github.com/barais/teaching-jxs-angular](https://github.com/barais/teaching-jxs-angular) (l'utilisation d'une bicyclette est conseillée pour s'y rendre plus vite).
 
+C'est un [clone](https://github.com/gbecan/teaching-jxs-angular4) du sujet développé par Guillaume Becan (ancien doctorant de l'équipe).
 
-C'est un [clone](https://github.com/gbecan/teaching-jxs-angular4) du sujet développé par Guillaume Becan (ancien doctorant de l'équipe). 
-
-![](https://github.com/barais/teaching-jxs-angular/raw/master/img/fig1.png)
+![pokedex](https://github.com/barais/teaching-jxs-angular/raw/master/img/fig1.png)
 
 ## Step 0
 
@@ -38,9 +37,9 @@ cd pokedemo
 ng serve
 ```
 
-Observez bien le squelette du projet généré. Il vient avec un point d'entrée (main.ts) et le fichier index.html racine. Ce dernier charge un composant sous la directive (selector) *&lt;app-root>&lt;/app-root>*. Cette directive demande l'instantiation d'un composant *app* défini dans le répertoire *app*. Ce composant est défini par une classe *app.component.ts*, un template *app.component.html*, une classe de test *app.component.spec.ts*, un fichier de définition de module *app.module.html* et un fichier de style *app.component.css*. 
+Observez bien le squelette du projet généré. Il vient avec un point d'entrée (main.ts) et le fichier index.html racine. Ce dernier charge un composant sous la directive (selector) *&lt;app-root>&lt;/app-root>*. Cette directive demande l'instantiation d'un composant *app* défini dans le répertoire *app*. Ce composant est défini par une classe *app.component.ts*, un template *app.component.html*, une classe de test *app.component.spec.ts*, un fichier de définition de module *app.module.html* et un fichier de style *app.component.css*.
 
-Changez le template *app-component.html* en remplaçant le code du template par  les lignes suivantes. Vous constaterez que l'application est rechargée automatiquement. 
+Changez le template *app-component.html* en remplaçant le code du template par  les lignes suivantes. Vous constaterez que l'application est rechargée automatiquement.
 
 ```html
 <div style="text-align:center">
@@ -49,7 +48,6 @@ Changez le template *app-component.html* en remplaçant le code du template par 
   </h1>
 </div>
 ```
-
 
 ## Step 2: Recherche d'un pokémon via son numéro
 
@@ -73,15 +71,15 @@ export class MyComponent {
 
 Pour faciliter la création d’un composant, nous allons utiliser l’outil [angular-cli](https://github.com/angular/angular-cli/blob/master/packages/angular/cli/README.md). Cet outil permet en
 particulier de générer facilement les différents concepts liés à Angular comme les composants, les
-services ou les directives. Par exemple, pour générer le composant précédent, il suffit de taper 
+services ou les directives. Par exemple, pour générer le composant précédent, il suffit de taper
 
 ```bash
 ng generate component my-component
 ```
 
-Vous constaterez que ng-cli génère automatiquement une structure pour vous avec un répertoire par composant. 
+Vous constaterez que ng-cli génère automatiquement une structure pour vous avec un répertoire par composant.
 
-### Q1 : 
+### Q1
 
 Créer un composant avec un élément *&lt;input>* afin de récupérer l'id recherché. Ajouter votre
 composant à la liste des directives et au template du composant *my-component*.
@@ -92,12 +90,10 @@ Charger ce composant en ahjoutant le selector de ce composant dans le template d
 <app-my-component></app-my-component>
 ```
 
-Vous constaterez que la page web contient maintenant le code html résultat du composant *my-component* à l'intérieur du composant *app.component*. 
-
-
+Vous constaterez que la page web contient maintenant le code html résultat du composant *my-component* à l'intérieur du composant *app.component*.
 
 Nous allons maintenant utiliser le data-binding d'Angular pour lier l'élément *&lt;input>* à un attribut de
-notre composant. En quelque sorte, nous allons lier la vue à notre modèle. 
+notre composant. En quelque sorte, nous allons lier la vue à notre modèle.
 
 Pour cela il nous faut charger un module supplémentaire. Dans app.module.ts ajoutez un import
 
@@ -114,7 +110,6 @@ et dans la section import, ajoutez le chargement de ce module pour votre applica
   ],
 ```
 
-
 Pour ajoutez le databinding, on utilise la directive  ngModel qui s'utilise comme ceci dans le fichier my-component-component.html :
 
 ```html
@@ -123,15 +118,13 @@ Pour ajoutez le databinding, on utilise la directive  ngModel qui s'utilise comm
 
 Ce code lie la valeur de l'élément input à l'attribut *id* de notre composant.
 
-
 Il faut aussi aussi ajouter l'attribut dans la classe métier du composant.  Dans  my-component-component.ts, ajouter l'attribut id de type string
 
 ```ts
   id: string = '';
 ```
 
-
-### Q2 : 
+### Q2
 
 Créer un attribut id et lier le à l'élément *&lt;input>* précédemment créé.
 
@@ -139,31 +132,27 @@ Pour tester le lien entre l'attribut et l'élément HTML, nous allons utiliser u
 aussi le méchanisme de data-binding : *{{myAttribute}}*. Cette syntaxe permet d'afficher la valeur d'un
 attribut du composant sur la page.
 
+Ajoutez {{id}} quelque part au sein de cotre template de votre composant (my-component-component.html ).
 
-Ajoutez {{id}} quelque part au sein de cotre template de votre composant (my-component-component.html ). 
+Vous constaterez que dès que l'input est modifié par l'utilisateur, la vue contenant la valeur de l'id est elle aussi modifiée.
 
-Vous constaterez que dès que l'input est modifié par l'utilisateur, la vue contenant la valeur de l'id est elle aussi modifiée. 
-
-### Q3 : 
+### Q3
 
 Créer un deuxième champs input en mode readonly et lié les deux par un id.  Afficher la valeur de l'id renseigné dans la balise *&lt;input>* venant d'être insérée.
 
-
-### Q3bis :
+### Q3bis
 
 comprendre pourquoi il devient difficile de faire une attaque XSS sur une application angular
 
 [lien](https://vitalflux.com/angular-prevent-xss-attacks-code-examples/)
 
-
 ## Recherche dans une liste
-
 
 Malheureusement, seul le professeur Chen connaît précisément le numéro de tous les pokémons. Pour
 aider les jeunes dresseurs à utiliser le pokédex, nous allons offrir la liste des pokémons ainsi qu'un
 champ de recherche pour filtrer cette liste.
 
-### Q4 : 
+### Q4
 
 Créer une classe Pokemon qui comporte un id et un nom. Nous compléterons la classe au fur et à
 mesure du TP.
@@ -171,36 +160,35 @@ mesure du TP.
 ```bash
 ng g class pokemon
 ```
-### Q5 : 
+
+### Q5
 
 Créer une liste fictive (4-5 éléments suffiront) de pokémons dans le composant précédemment
 créé.
 
-### Q6 : 
+### Q6
 
 Afficher la liste des pokémons dans [https://angular.io/guide/template-syntax#ngforof](https://angular.io/guide/template-syntax#ngforof)
 une balise *&lt;select>* en utilisant \*ngFor
 
-### Q7 : 
+### Q7
 
 Récupérer le choix du dresseur en liant la balise *&lt;select>* au modèle avec ngModel.
 
-
-### Q8 : 
+### Q8
 
 Comme la liste des pokémons peut être très longue, nous allons proposer au dresseur de filtrer la liste.
 
+Ajouter un champ de texte et récupérer sa valeur dans un attribut. Nous allons devoir créer un filtre à l'aide d'un *pipe* Angular.
 
-Ajouter un champ de texte et récupérer sa valeur dans un attribut. Nous allons devoir créer un filtre à l'aide d'un *pipe* Angular. 
-
-Tout d'abord créons un *pipe*. 
+Tout d'abord créons un *pipe*.
 
 ```bash
 ng g pipe filter-pokemon--pipe
 ```
 
 dans la classe généré pour le pipe, vous verrez ce filtre
-prend deux paramètres : le nom de l’attribut à filtrer et la valeur à rechercher. La fonction transforme ressemblera à cela. 
+prend deux paramètres : le nom de l’attribut à filtrer et la valeur à rechercher. La fonction transforme ressemblera à cela.
 
 ```ts
   transform(value: any[], property?: string, searchString?: string): any {
@@ -214,40 +202,29 @@ prend deux paramètres : le nom de l’attribut à filtrer et la valeur à reche
   }
   ```
 
-En partant de la page de [documentation](https://angular.io/guide/pipes) sur les *pipes*, faites en sorte de permettre le filtre de votre liste depuis une entrée utilisateur. 
+En partant de la page de [documentation](https://angular.io/guide/pipes) sur les *pipes*, faites en sorte de permettre le filtre de votre liste depuis une entrée utilisateur.
 
+### Q9
 
-### Q9 : 
+Pour valider le choix du dresseur, nous allons ajouter un bouton « Go ! » dont le comportement sera défini dans notre composant. Pour lier un évènement à notre composant, on utilise la syntaxe qui permet d'appeler une méthode de notre composant.
 
-Pour valider le choix du dresseur, nous allons ajouter un bouton « Go ! » dont le comportement sera défini dans notre composant. Pour lier un évènement à notre composant, on utilise la syntaxe qui permet d'appeler une méthode de notre composant. 
-
-```html 
+```html
 (eventName)="codeToExecute()"
 ```
-
-
 
 Ajouter un *&lt;button>* à la page et lier l'évènement click à une méthode du contrôleur. Pour le
 moment la méthode se contentra d'afficher l'id ou le nom du pokémon recherché dans la console.
 
-
 ## Intégration de composants existants
 
+### Q9 bis
 
-### Q9 bis: 
+Intégration de composants material UI.
 
-
-Intégration de composants material UI. 
-
-En suivant ce [guide](https://material.angular.io/guide/getting-started), intgréer un composant angular à votre application. 
+En suivant ce [guide](https://material.angular.io/guide/getting-started), intgréer un composant angular à votre application.
 Regardez le nombre de module util à la comilation et le nombre de dépendances utilisés. (Dans votre node_module)
 
-
-
 ## Accès à une API
-
-
-
 
 Le site [http://pokeapi.co/](http://pokeapi.co/) propose une API contenant de nombreuses informations sur les pokémons. En
 particulier, l'API offre la liste des pokémons (api/v2/pokedex/1) ainsi que des informations détaillées
@@ -259,7 +236,7 @@ utilise l'injection de dépendances pour fournir les services. Cela permet en pa
 service qu'une seule fois pour toute l'application ou bien une partie de celle-ci. Pour encapsuler l'accès à
 l'API, nous allons nous même créer un service. Un service Angular est en fait une classe.
 
-### Q10 : 
+### Q10
 
 Créer un service pour gérer l'accès à PokéAPI.
 
@@ -270,11 +247,11 @@ ng generate service
 Ajouter un paramètre à son constructeur afin de récupérer le service http. Ajouter aussi l'annotation *@Injectable()* afin de
 spécifier à Angular que votre service comporte une dépendance vers un autre service.
 
-### Q11 : 
+### Q11
 
 Créer une méthode pour récupérer la liste des pokémons en utilisant le service *http*.
 
-### Q12 : 
+### Q12
 
 Utiliser ce service dans le composant de recherche de pokémons pour remplacer la liste fictive de
 pokémons. Pour cela, ajouter le paramètre providers au module AppModule comme ceci :
@@ -285,22 +262,18 @@ providers: [PokeApiService]
 
 Ainsi Angular saura quelle classe injecter dans vos composants.
 
-### Q13 : 
+### Q13
 
 Créer une autre méthode pour récupérer les informations sur un pokémon. Compléter la classe
 Pokémon afin de recueillir ces informations.
 
-### Q14 : 
+### Q14
 
 Créer un nouveau composant dédié à l'affichage des informations d'un pokémon. Utiliser le
 service précédemment créé pour récupérer les informations d'un pokémon. Combiner les différents
 mécanismes de data-binding vus jusqu'ici pour afficher l'id, le nom et les statistiques d'un pokémon.
 
-
-
 ## Communication entre contrôleurs
-
-
 
 À présent, nous avons deux parties à notre application. La première permet de rechercher un pokémon
 grâce à son numéro ou son nom. La deuxième récupère et affiche les informations d'un pokémon. Il ne
@@ -309,8 +282,7 @@ composants, nous allons créer un nouveau service qui va contenir les informatio
 pour le service dédié à l'API, ce service ne sera instancié qu'une seule fois et permettra donc l'échange
 d'informations.
 
-
-### Q15 : 
+### Q15
 
 Créer un service contenant l'id du pokémon recherché. Injecter ce service dans le composant de
 recherche et le composant d'affichage des informations. On n'oublira pas de l'ajouter dans les providers
@@ -320,7 +292,7 @@ mêmes informations. Cependant, les informations du pokémon ne sont pas mises �
 change le numéro ou le nom du pokémon recherché. Pour détecter les changements de ces deux
 attributs, nous allons utiliser la notion d'observable.
 
-### Q16 : 
+### Q16
 
 Créer un observable dans le service précédemment créé. Le composant d'affichage d'informations
 d'un pokémon peut maintenant souscrire à cet observable pour détecter le changement de pokémon.
