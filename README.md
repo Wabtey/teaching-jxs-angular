@@ -95,7 +95,7 @@ Vous constaterez que la page web contient maintenant le code html résultat du c
 Nous allons maintenant utiliser le data-binding d'Angular pour lier l'élément *&lt;input>* à un attribut de
 notre composant. En quelque sorte, nous allons lier la vue à notre modèle.
 
-Pour cela il nous faut charger un module supplémentaire. Dans app.module.ts ajoutez un import
+Pour cela il nous faut charger un module supplémentaire. Dans app.module.ts ajouter un import
 
 ```ts
 import { FormsModule } from '@angular/forms';
@@ -110,7 +110,7 @@ et dans la section import, ajoutez le chargement de ce module pour votre applica
   ],
 ```
 
-Pour ajoutez le databinding, on utilise la directive  ngModel qui s'utilise comme ceci dans le fichier my-component.component.html :
+Pour ajouter le databinding, on utilise la directive  ngModel qui s'utilise comme ceci dans le fichier my-component.component.html :
 
 ```html
 <input [(ngModel)]="id">
